@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiisetso CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+    
+    <section class="portfolio" id="portfolio">
+        <header><a href="index.htm" class="logo"><i class="fa-solid fa-backward"></i></a></header>
+
+        <div class="center-text">
+            <h2>My <span>Portfolio</span></h2>
+        </div>
+
+        <div class="portfolio-content">
+            <div class="section">
+                <div class="row">
+                    <video class="portfolio-video" src="videos/video1.mp4" autoplay muted loop></video>
+                    <div class="main-row">
+                        <div class="row-text">
+                            <h5>Website Design</h5>
+                        </div>
+                        <div class="row-icon">
+                            <a href="https://github.com/towebl"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4>Website Development For Dark X</h4>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="row">
+                    <video class="portfolio-video" src="videos/video2.mp4" autoplay muted loop></video>
+                    <div class="main-row">
+                        <div class="row-text">
+                            <h5>Website Design</h5>
+                        </div>
+                        <div class="row-icon">
+                            <a href="https://github.com/towebl"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4>Website Development For Dark X</h4>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="row">
+                    <video class="portfolio-video" src="videos/video3.mp4" autoplay muted loop></video>
+                    <div class="main-row">
+                        <div class="row-text">
+                            <h5>Website Design</h5>
+                        </div>
+                        <div class="row-icon">
+                            <a href="https://github.com/towebl"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4>Website Development For Dark X</h4>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="row">
+                    <video class="portfolio-video" src="videos/video4.mp4" autoplay muted loop></video>
+                    <div class="main-row">
+                        <div class="row-text">
+                            <h5>Website Design</h5>
+                        </div>
+                        <div class="row-icon">
+                            <a href="https://github.com/towebl"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4>Website Development For Dark X</h4>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="row">
+                    <video class="portfolio-video" src="videos/video5.mp4" autoplay muted loop></video>
+                    <div class="main-row">
+                        <div class="row-text">
+                            <h5>Website Design</h5>
+                        </div>
+                        <div class="row-icon">
+                            <a href="https://github.com/towebl"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4>Website Development For Dark X</h4>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="row">
+                    <video class="portfolio-video" src="videos/video2.mp4" autoplay muted loop></video>
+                    <div class="main-row">
+                        <div class="row-text">
+                            <h5>Website Design</h5>
+                        </div>
+                        <div class="row-icon">
+                            <a href="https://github.com/towebl"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4>Website Development For Dark X</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const videos = document.querySelectorAll('.portfolio-video');
+            const videoModal = document.createElement('div');
+            videoModal.className = 'video-modal';
+        
+            videos.forEach(video => {
+                video.addEventListener('click', () => {
+                    // Clone the clicked video and append it to the modal
+                    const clonedVideo = video.cloneNode(true);
+                    videoModal.innerHTML = '';
+                    videoModal.appendChild(clonedVideo);
+        
+                    // Toggle the blur effect on the background
+                    document.body.classList.toggle('blur-background');
+        
+                    // Toggle the display of the modal
+                    videoModal.style.display === 'none' ? videoModal.style.display = 'flex' : videoModal.style.display = 'none';
+                });
+            });
+        
+            // Append the modal to the body
+            document.body.appendChild(videoModal);
+        
+            // Close the modal when clicking on it
+            videoModal.addEventListener('click', () => {
+                videoModal.style.display = 'none';
+                document.body.classList.remove('blur-background');
+            });
+
+
+
+
+
+
+
+            // Portfolio Animation 
+            const sections = document.querySelectorAll(".portfolio-content .section");
+            let tl_p = gsap.timeline({
+                duration: 2,
+            });
+
+            sections.forEach(section => {
+                tl_p.from(section.querySelector(".row"), {
+                    y: 100, 
+                    opacity: 0, 
+                    ease: "bounce(4)",
+                    duration: 1, 
+                    scrollTrigger: {
+                        trigger: section.querySelector(".row"),
+                        start: "top bottom",
+                        end: "bottom bottom",
+                        scrub: true,
+                    }
+                });
+            });
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiisetso CV</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header><a href="index.htm" class="logo"><i class="fa-solid fa-backward"></i></a></header>
+
+        <main>
+            <div class="col2 hero">
+                <h1>This is one of the way you can get me</h1>
+                <div class="form">
+                    <label for="email">Notify me!!</label>
+                    <div class="col2">
+                        <input type="text" name="email" id="email" placeholder="Email Address">
+                        <input type="submit" value="Add me">
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="card">
+                    <p class="title">Web Developer</p>
+                    <p class="desc">Create robust and scalable applications with modular code architecture. Build and extend functionalities seamlessly, allowing for easy maintenance and future enhancements.</p>
+                </div>
+                <div class="card">
+                    <p class="title">Graphic Designer</p>
+                    <p class="desc">Infuse creativity into designs, offering unique and visually stunning solutions. Customize graphics to align with brand identity, creating memorable and impactful visual experiences.</p>
+                </div>
+                <div class="card">
+                    <p class="title">PPP &map; Managed Payments</p>
+                    <p class="desc">PPP into database operations for enhanced security and performance. Implement managed payment systems for secure and efficient transactions.</p>
+                </div>
+                <div class="card">
+                    <p class="title">Performance Testing</p>
+                    <p class="desc"> Execute performance testing to evaluate the responsiveness and stability of web applications. Identify and address potential bottlenecks, ensuring optimal performance under various user loads.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/CSSRulePlugin.min.js"></script>
+    
+    <script>
+        let tl = gsap.timeline({ defaults: { ease: "bounce(4)", duration: 2}});
+        let flagPoles = CSSRulePlugin.getRule('.card:before');
+        
+        tl.to('.logo i', { 
+            opacity: 1, 
+            x: 0,
+            y: 0, 
+            duration: 1
+        })
+        
+        tl.to('h1', { 
+            'clip-path': 'polygon(0 100%, 100% 100%, 100% 0%, 0% 0%)',
+            opacity: 1, 
+            x: 0,
+            y: 0, 
+            duration: 2.2
+        })
+          .to('.form', {
+            'clip-path': 'polygon(0 100%, 100% 100%, 100% 0%, 0% 0%)',
+            opacity: 1,  
+            x: 0,
+            y: 0, 
+          },"-=2")
+          .from('.card', { scaleY: 0, stagger: .2}, "-=2")
+          .from(flagPoles, {stagger: 1, opacity: 0, y: 100}, "-=2")
+          .to(".title, .desc", { stagger: .1, duration: 1.2, opacity: 1, y: 0}, "-=2")
+           
+    </script>
+    
+</body>
+</html>
