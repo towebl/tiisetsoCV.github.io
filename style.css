@@ -462,6 +462,36 @@ section {
 }
 
 
+.portfolio .github-link {
+    margin-top: 3rem;
+    border-radius: 28px;
+    background: #2d343f;
+    height: 100%;
+}
+
+.github-link h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color:#848c90;
+}
+
+.github-link .links {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+}
+
+.links a {
+    text-decoration: none;
+    color:#03a9f4;
+    padding: 0 1rem;
+    transition: .4s ease-in-out;
+}
+
+.links a:hover {
+    color:#923ADB;
+}
+
+
 
 
 
@@ -496,11 +526,16 @@ section {
     .container .left_side {
         border-radius: 0;
     }
+
+    .github-link .links {
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+    }
 }
 
 @media (max-width: 600px) {
     section {
-        padding: 50px 15% 10px;
+        padding: 50px 9% 10px;
     }
     .about .box {
         flex-direction: column;
@@ -521,12 +556,20 @@ section {
         overflow-x: hidden !important;
     }
     .menu nav ul {
-        margin-bottom: 34rem;
+        margin-bottom: 30rem;
     }
     .menu nav .close {
         top: 5%;
     }
     .menu nav h2 {
         top: 5%;
+    }
+
+    .github-link .links {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+    }
+    .github-link h2 {
+        font-size: 1.6rem;
     }
 }
